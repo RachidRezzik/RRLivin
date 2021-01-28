@@ -7,6 +7,7 @@ import {
 //components
 import Nav from './components/Nav'
 import Home from './components/Home'
+import About from './components/About'
 import Houses from './components/Houses'
 import Apartments from './components/Apartments'
 import Footer from './components/Footer';
@@ -18,8 +19,9 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/Apartments" component={Apartments} />
-          <Route exact path="/Houses" component={Houses} />
+          <Route path="/About" component={About} />
+          <Route path="/Apartments" component={Apartments} />
+          <Route path="/Houses" component={Houses} />
         </Switch>
         <Footer />
       </HashRouter>

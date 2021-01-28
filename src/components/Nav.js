@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 //components
 import useCurrentWidth from './useCurrentWidth'
@@ -40,8 +40,9 @@ export default function Nav(props) {
                 </div>
             </div> 
             <div className={menuOpen ?"links_container open" : "links_container"}>
-                <Link to="/Apartments">APARTMENTS</Link>
+                <Link to="/About">ABOUT</Link>
                 <Link to="/Houses">HOUSES</Link>
+                <Link to="/Apartments">APARTMENTS</Link>
             </div> 
             </div>
             :
@@ -52,8 +53,9 @@ export default function Nav(props) {
                     </Link>
                 </div>
                 <div className={menuOpen ?"links_container open" : "links_container"}>
-                    <Link to="/Apartments">APARTMENTS</Link>
+                    <Link to="/About">ABOUT</Link>
                     <Link to="/Houses">HOUSES</Link>
+                    <Link to="/Apartments">APARTMENTS</Link>
                 </div> 
             </div>}
         </div>

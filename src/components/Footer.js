@@ -10,8 +10,7 @@ export default function Footer() {
                     <div className="social_media">
                         <i className="fab fa-twitter fa-2x"></i>                
                         <i className="fab fa-facebook fa-2x"></i>                  
-                        <i className="fab fa-instagram fa-2x"></i>
-                        <i className="fab fa-github fa-2x"></i>                      
+                        <i className="fab fa-instagram fa-2x"></i>                    
                     </div>
                 </div>
             </div>

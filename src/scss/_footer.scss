@@ -1,8 +1,8 @@
 @import './config';
 
 .footer{
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
     @include flexCenter;
     justify-content: space-between;
     background: black;

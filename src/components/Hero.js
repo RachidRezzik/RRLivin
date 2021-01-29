@@ -1,4 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+//Data
 import { SliderData } from '../data/SliderData'
 //images
 import down_arrow from '../images/arrowDown.png'
@@ -12,6 +15,9 @@ export default function Hero() {
     
     
     useEffect(() => {
+
+        AOS.init()
+
         const nextSlide = () => {
             setCurrent(current => (current === length - 1 ? 0 : current + 1))
         }
@@ -39,7 +45,7 @@ export default function Hero() {
     }
 
     const handleViewHomeLeave = () => {
-        timeout.current = setTimeout(handleNextSlide, 3500)
+        timeout.current = setTimeout(handleNextSlide, 4000)
     }
 
     return (
@@ -47,9 +53,9 @@ export default function Hero() {
             <div className="slide_container">
                 {SliderData.map((slide, index) => {        
                     return current === index ? 
-                        <div className="slide" key={index} style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${slide.img})`}}>
-                            <h1>{slide.title}</h1>
-                            <p>{slide.price}</p>
+                        <div className="slide" key={index} data-aos="fade" duration="1750" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${slide.img})`}}>
+                            <h1 data-aos="new-animation" >{slide.title}</h1>
+                            <p data-aos="new-animation">{slide.price}</p>
                             <button onMouseEnter={handleViewHomeEnter} onMouseLeave={handleViewHomeLeave}>View Home ➜</button>
                             <div className="slide_buttons">
                                 <span id="previous" onClick={handlePreviousSlide}>➜</span>

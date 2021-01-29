@@ -11,6 +11,7 @@ import About from './components/About'
 import Houses from './components/Houses'
 import Apartments from './components/Apartments'
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/About" component={About} />
           <Route path="/Apartments" component={Apartments} />
           <Route path="/Houses" component={Houses} />
+          <Route path="/Contact" component={Contact} />
         </Switch>
         <Footer />
       </HashRouter>

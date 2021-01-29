@@ -21,7 +21,7 @@ export const SliderData = [
         price: '$550,000'
     },
     {
-        title: "Apartment in Arlington",
+        title: "Apartment in San Antonio",
         img: house4,
         price: '$1,250/Month'
     }

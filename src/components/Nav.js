@@ -25,13 +25,20 @@ export default function Nav(props) {
         setMenuOpen(!menuOpen)
     }
 
+    const handleMenuItemClick = () => {
+        setMenuOpen(false)
+        window.scrollTo({
+            top: 0
+        })
+    }
+
     return (
         <div>
             {isMobile ? 
             <div>    
             <div className="nav">
                 <div className="logo_container">
-                    <Link to="/">
+                    <Link onClick={handleMenuItemClick} to="/">
                         <img src={logo} alt="" />
                     </Link>
                 </div>
@@ -40,22 +47,24 @@ export default function Nav(props) {
                 </div>
             </div> 
             <div className={menuOpen ?"links_container open" : "links_container"}>
-                <Link to="/About">ABOUT</Link>
-                <Link to="/Houses">HOUSES</Link>
-                <Link to="/Apartments">APARTMENTS</Link>
+                <Link onClick={handleMenuItemClick} to="/About">ABOUT</Link>
+                <Link onClick={handleMenuItemClick} to="/Houses">HOUSES</Link>
+                <Link onClick={handleMenuItemClick} to="/Apartments">APARTMENTS</Link>
+                <Link onClick={handleMenuItemClick} to="/Contact">CONTACT</Link>
             </div> 
             </div>
             :
             <div className="nav">
                 <div className="logo_container">
-                    <Link to="/">
+                    <Link onClick={handleMenuItemClick} to="/">
                         <img src={logo} alt="" />
                     </Link>
                 </div>
                 <div className={menuOpen ?"links_container open" : "links_container"}>
-                    <Link to="/About">ABOUT</Link>
-                    <Link to="/Houses">HOUSES</Link>
-                    <Link to="/Apartments">APARTMENTS</Link>
+                    <Link onClick={handleMenuItemClick} to="/About">ABOUT</Link>
+                    <Link onClick={handleMenuItemClick} to="/Houses">HOUSES</Link>
+                    <Link onClick={handleMenuItemClick} to="/Apartments">APARTMENTS</Link>
+                    <Link onClick={handleMenuItemClick} to="/Contact">CONTACT</Link>
                 </div> 
             </div>}
         </div>

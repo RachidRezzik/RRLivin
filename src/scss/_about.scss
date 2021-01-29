@@ -1,0 +1,104 @@
+@import './config';
+
+
+.about_headline{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.about_intro, .tech_difference, .agents_difference{
+    width: 95%;
+    max-width: 950px;
+    margin: 20px auto;
+
+    .image_container{
+        position: relative;
+        width: 100%;
+        max-height: 600px;
+
+        &::after{
+            content: "";
+            display: block;
+            padding-bottom: 47.5%;
+        }
+
+        img{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-position: top;
+            background: lightgrey;
+        }
+    }
+
+    p{
+        width: 100%;
+        margin: 20px auto;
+        font-size: clamp(15px, 800px, 25px);
+        text-align: justify;
+    }
+
+    h4{
+        font-size: clamp(17.5px, 10vw, 32.5px); 
+        font-style: italic;
+        padding-left: 2.5%;
+        margin-bottom: 10px;
+    }
+
+    .tech_links{
+        @include flexCenter;
+        flex-wrap: wrap;
+        margin-top: 40px;
+
+        a{
+            text-decoration: none;
+        }
+
+        button{
+            background: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: clamp(17.5px, 10vw, 17.5px);
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover{
+                color: $green;
+            }
+        }
+    }
+    
+    button{
+        display: block;
+        text-align: center;
+        background: black;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 5px auto;
+        margin-top: 40px;
+        margin-bottom: 75px;
+        font-size: clamp(17.5px, 10vw, 17.5px);
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        &:hover{
+            color: $green;
+        }
+    }
+}
+
+.livin_difference{
+    text-align: center;
+    margin: 80px auto;
+    margin-bottom: 15px;
+}
+

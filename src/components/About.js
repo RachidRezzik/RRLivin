@@ -37,7 +37,7 @@ export default function About() {
                 </div>
             </div>
             <div className="agents_difference" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
-                <h4 style={{marginTop:"40px"}}>Agents</h4>
+                <h4 style={{marginTop:"80px"}}>Agents</h4>
                 <div className="image_container">
                     <img src={agents} alt="" />
                 </div>

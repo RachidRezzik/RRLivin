@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
-import AOS from 'aos';
+import {Link} from 'react-router-dom'
+import AOS from 'aos'
 import 'aos/dist/aos.css'
 //Data
 import { SliderData } from '../data/SliderData'
@@ -48,15 +49,27 @@ export default function Hero() {
         timeout.current = setTimeout(handleNextSlide, 4000)
     }
 
+    const handleLinkClick = () => {
+        window.scrollTo({
+            top: 0
+        })
+    }
+
     return (
         <div className="hero_section">
             <div className="slide_container">
                 {SliderData.map((slide, index) => {        
                     return current === index ? 
-                        <div className="slide" key={index} data-aos="fade" duration="1750" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${slide.img})`}}>
+                        <div className="slide" key={index} data-aos="fade" duration="1750" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${slide.img})`}}>
                             <h1 data-aos="new-animation" >{slide.title}</h1>
                             <p data-aos="new-animation">{slide.price}</p>
-                            <button onMouseEnter={handleViewHomeEnter} onMouseLeave={handleViewHomeLeave}>View Home ➜</button>
+                            {slide.title.includes('House') ?
+                            <Link onClick={handleLinkClick} to='/Houses'>
+                                <button onMouseEnter={handleViewHomeEnter} onMouseLeave={handleViewHomeLeave}>View Houses ➜</button>
+                            </Link> : 
+                            <Link onClick={handleLinkClick} to='/Apartments'>
+                                <button onMouseEnter={handleViewHomeEnter} onMouseLeave={handleViewHomeLeave}>View Apartments ➜</button>
+                            </Link>}
                             <div className="slide_buttons">
                                 <span id="previous" onClick={handlePreviousSlide}>➜</span>
                                 <span onClick={handleNextSlide}>➜</span>

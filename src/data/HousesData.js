@@ -30,38 +30,44 @@ import living6 from '../images/living6.jpg'
 export const HousesData = [
     {
         images: [house1, bedroom1, bathroom1, living1],
-        price: 550000,
+        price: 525000,
         location: "Houston",
-        bedrooms: 4
+        bedrooms: 4,
+        bathrooms: 3
     },
     {
         images: [house2, bedroom2, bathroom2, living2],
-        price: 550000,
+        price: 700000,
         location: "Dallas",
-        bedrooms: 4
+        bedrooms: 4,
+        bathrooms: 4
     },
     {
         images: [house3, bedroom3, bathroom3, living3],
-        price: 550000,
+        price: 275000,
         location: "San Antonio",
-        bedrooms: 4
+        bedrooms: 3,
+        bathrooms: 2
     },
     {
         images: [house4, bedroom4, bathroom4, living4],
-        price: 550000,
+        price: 675000,
         location: "Austin",
-        bedrooms: 4
+        bedrooms: 4,
+        bathrooms: 3
     },
     {
         images: [house5, bedroom5, bathroom5, living5],
-        price: 550000,
+        price: 350000,
         location: "Dallas",
-        bedrooms: 4
+        bedrooms: 3,
+        bathrooms: 2
     },
     {
         images: [house6, bedroom6, bathroom6, living6],
-        price: 550000,
+        price: 845000,
         location: "Austin",
-        bedrooms: 4
+        bedrooms: 5,
+        bathrooms: 4
     }
 ]

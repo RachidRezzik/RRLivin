@@ -19,7 +19,27 @@
             outline: none;
         }
 
-        button{
+        #apply{
+            background: white;
+            color: black;
+            border: 3px solid $green;
+            outline: none;
+            cursor: pointer;
+            font-weight: bolder;
+            padding: 5px;
+            height: 30px;
+            border-radius: 2.5px;
+
+            &:hover{
+                background: $green;
+            }
+        }
+    }
+    .rel_div{
+        position: relative;
+
+        .more{
+            position: static;
             background: black;
             color: white;
             border: none;
@@ -28,24 +48,92 @@
             height: 30px;
             cursor: pointer;
             border-radius: 2.5px;
+            width: 100%;
 
             &:hover{
                 color: $green;
             }
         }
 
-        #apply{
-            background: white;
-            color: black;
-            border: 3px solid $green;
-            font-weight: bolder;
+        .more_popup{
+            position: absolute;
+            width: 135px;
+            z-index: 1;
+            right: 50%;
+            top: 22.5px;
+            background: black;
+            color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            padding: 7.5px;
+            border-radius: 2.5px;
+            transform: translateX(50%) scale(0);
+            transition: all .35s ease-in-out;
+            transform-origin: top center;
+            pointer-events: none;
+            opacity: 0;
 
-            &:hover{
-                background: $green;
+            &.open{
+                transform: translateX(50%) scale(1);
+                opacity: 1;
+                top: 40.25px;
+                pointer-events: all;
             }
+
+            &::after{
+                content: "";
+                border: 10px solid transparent;
+                border-bottom-color: black;
+                cursor: pointer;
+                position: absolute;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            h4:nth-of-type(2){
+                margin-top: 10px;
+            }
+
+            input{
+                width: 100%;
+                text-indent: 10px;
+                margin: 2.5px auto;
+                outline: $green;
+            }
+
+            .popup_buttons{
+                margin: 0px;
+                margin-top: 10px;
+                position: static;
+                width: 100%;
+                @include flexCenter;
+                
+                button, input{
+                    width: unset;
+                    text-indent: unset;
+                    text-align: center;
+                    background: black;
+                    padding: 2.5px;
+                    border-radius: 2.5px;
+                    border: 1px solid $green;
+                    outline: none;
+                    margin: 2.5px;
+                    color: $green;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: $green;
+                        color: white;
+                    }
+                }
+            }
+
+
         }
-    }
+    }  
 }
+
+
 
 .headline{
     text-align: center;
@@ -64,7 +152,7 @@
         width: 100%;
         max-width: 325px;
         margin: 20px 10px;
-        box-shadow: 0px -0px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         border-bottom: 3px solid $green;
 
@@ -92,7 +180,6 @@
                 border-radius: 2.5px 2.5px 0px 0px;
             }
         }
-
 
         .property_stats{
             width: 100%;

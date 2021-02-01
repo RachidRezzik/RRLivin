@@ -25,38 +25,44 @@ import bathroom6 from '../images/bathroom12.jpg'
 export const ApartmentsData = [
     {
         images: [home5, bedroom1, bathroom1],
-        price: 1475,
+        price: 1775,
         location: "San Antonio",
-        bedrooms: 4
+        bedrooms: 4,
+        bathrooms:4
     },
     {
         images: [home3, bedroom2, bathroom2],
         price: 975,
         location: "Houston",
-        bedrooms: 1
+        bedrooms: 1,
+        bathrooms:1
     },
     {
         images: [home1, bedroom3, bathroom3],
         price: 1275,
         location: "San Antonio",
-        bedrooms: 3
+        bedrooms: 3,
+        bathrooms:2
     },
     {
         images: [home4, bedroom4, bathroom4],
         price: 1325,
         location: "Dallas",
-        bedrooms: 2
+        bedrooms: 2,
+        bathrooms:2
     },
     {
         images: [home2, bedroom5, bathroom5],
         price: 1150,
         location: "Austin",
-        bedrooms: 1
+        bedrooms: 1,
+        bathrooms:1
     },
     {
         images: [home6, bedroom6, bathroom6],
-        price: 1575,
+        price: 1675,
         location: "Houston",
-        bedrooms: 3
+        bedrooms: 3,
+        bathrooms:3
     }
 ]

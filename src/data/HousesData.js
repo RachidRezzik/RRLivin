@@ -30,43 +30,73 @@ import living6 from '../images/living6.jpg'
 export const HousesData = [
     {
         images: [house1, bedroom1, bathroom1, living1],
+        parking: "3 Car Garage (Attached)",
+        year: 1994,
+        heating: "Natural Gas",
+        cooling: "Electric",
         price: 525000,
         location: "Houston",
+        address: "1250 Greene Street",
         bedrooms: 4,
         bathrooms: 3
     },
     {
         images: [house2, bedroom2, bathroom2, living2],
+        parking: "3 Car Garage (Attached)",
+        year: 1994,
+        heating: "Natural Gas",
+        cooling: "Electric",
         price: 700000,
         location: "Dallas",
+        address: "1560 Albert Drive",
         bedrooms: 4,
         bathrooms: 4
     },
     {
         images: [house3, bedroom3, bathroom3, living3],
+        parking: "3 Car Garage (Attached)",
+        year: 1994,
+        heating: "Natural Gas",
+        cooling: "Electric",
         price: 275000,
         location: "San Antonio",
+        address: "1710 Clariden Street",
         bedrooms: 3,
         bathrooms: 2
     },
     {
         images: [house4, bedroom4, bathroom4, living4],
+        parking: "3 Car Garage (Attached)",
+        year: 1994,
+        heating: "Natural Gas",
+        cooling: "Electric",
         price: 675000,
         location: "Austin",
+        address: "1298 South Parkway",
         bedrooms: 4,
         bathrooms: 3
     },
     {
         images: [house5, bedroom5, bathroom5, living5],
+        parking: "3 Car Garage (Attached)",
+        year: 1994,
+        heating: "Natural Gas",
+        cooling: "Electric",
         price: 350000,
         location: "Dallas",
+        address: "1923 London Street",
         bedrooms: 3,
         bathrooms: 2
     },
     {
         images: [house6, bedroom6, bathroom6, living6],
+        parking: "3 Car Garage (Attached)",
+        year: 1994,
+        heating: "Natural Gas",
+        cooling: "Electric",
         price: 845000,
         location: "Austin",
+        address: "1440 Park Trail",
         bedrooms: 5,
         bathrooms: 4
     }

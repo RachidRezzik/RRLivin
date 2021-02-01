@@ -1,10 +1,9 @@
 import './App.scss';
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {
   HashRouter,
   Route,
-  Switch,
-  withRouter
+  Switch
 } from 'react-router-dom'
 //components
 import Nav from './components/Nav'

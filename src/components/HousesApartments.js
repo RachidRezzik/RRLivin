@@ -1,12 +1,34 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom' 
+import { withRouter } from 'react-router'
 
 //Data
 import {HousesData} from '../data/HousesData'
 import {ApartmentsData} from '../data/ApartmentsData'
 
+//Component
+import PropertyModal from './PropertyModal'
 
-export default function Houses() {
+// const Page = React.createClass({})
+
+export default function HousesApartments() {
+    //Property Modal for when User Clicks on Property for More Info
+    const [modalOpen, setModalOpen] = useState(false)
+    const [featuredProperty, setFeaturedProperty] = useState({images: HousesData[0].images})
+
+    const handleModalToggle = (propertyIndex) => {
+        setModalOpen(!modalOpen)
+        if (modalOpen){
+            document.querySelector("body").classList.remove("modal_open")
+        } else {
+            document.querySelector("body").classList.add("modal_open")
+        }
+        if (propertyIndex !== "back"){
+            setFeaturedProperty(housesArray[propertyIndex])
+        }
+    }
+
+
     const [moreFilters, setMoreFilters] = useState(["", "", "", ""])
     const [bedEmpty, setBedEmpty] = useState(true)
     const [bathEmpty, setBathEmpty] = useState(true)
@@ -27,7 +49,10 @@ export default function Houses() {
         setBathEmpty(filters2.splice(2, 2).every(filter => filter === ""))
     }
 
-    const handleClearFilters = () => {
+    const handleClearFilters = (message) => {
+        setBedEmpty(true)
+        setBathEmpty(true)
+
         const moreFilterInputs = Array.from(document.querySelectorAll(".more_popup input")).slice(0, 4)
 
         moreFilterInputs.forEach(input => {
@@ -35,6 +60,12 @@ export default function Houses() {
         })
 
         setMoreFilters(["", "", "", ""])
+
+        if (message === "clear_selects"){
+            Array.from(document.querySelectorAll('.filter_container select'))[0].value = "All"
+            Array.from(document.querySelectorAll('.filter_container select'))[1].value = "Any"
+            
+        }
     }
 
 
@@ -42,13 +73,19 @@ export default function Houses() {
 
     const handleApplyFilter = () => {
         let filteredArray = []
+        let originalArray = []
+        if (window.location.href.includes('Houses')){
+            originalArray = [...HousesData]
+        } else{
+            originalArray = [...ApartmentsData]
+        }
 
         //City Filter
         const citySelect = document.querySelectorAll(".filter_container select")[0]
         if (citySelect.value !== 'All'){
-            filteredArray = HousesData.filter(house => house.location === citySelect.value)
+            filteredArray = originalArray.filter(house => house.location === citySelect.value)
         } else {
-            filteredArray = HousesData
+            filteredArray = originalArray
         }
         
         //Price Filter
@@ -85,18 +122,25 @@ export default function Houses() {
     }
 
     const history = useHistory() 
+    const node2 = React.useRef()
+    const node3 = React.useRef()
+
+    // Checking to see if page changed
+    history.listen((location) => { 
+        if(location.pathname.includes('Houses')){
+            setHousesArray(HousesData)
+        } else if (location.pathname.includes('Apartments')){
+            setHousesArray(ApartmentsData)
+        }
+        handleClearFilters("clear_selects")
+    })
+
+    
 
     useEffect(() => {
-        history.listen((location) => { 
-            if(location.pathname.includes('Houses')){
-                setHousesArray(HousesData)
-            } else if (location.pathname.includes('Apartments')){
-                setHousesArray(ApartmentsData)
-            }
-        }) 
         let handler = (event) => {
             if (!node.current.contains(event.target) && moreOpen && event.target.className !== "more" && event.target.id !== "add") {
-                handleMoreClick()
+                setMoreOpen(!moreOpen)
             }
         }
         document.addEventListener('mousedown', handler)
@@ -104,16 +148,21 @@ export default function Houses() {
         return () => {
             document.removeEventListener('mousedown', handler)
         }
-    },[history])
+    },[history, housesArray, moreOpen])
 
     const node = React.useRef()
 
     return (
         <div className="full_page">
+            <PropertyModal 
+            modalOpen={modalOpen}
+            featuredProperty={featuredProperty}
+            handleModalToggle={handleModalToggle}
+            />
             <div className="filter_container">
                 <div>
                     City:  
-                    <select>
+                    <select ref={node2}>
                         <option>All</option>
                         <option>Austin</option>
                         <option>Dallas</option>
@@ -123,7 +172,7 @@ export default function Houses() {
                 </div>
                 <div>
                     Price:  
-                    <select>
+                    <select ref={node3}>
                         <option>Any</option>
                         <option>Low to High</option>
                         <option>High to Low</option>
@@ -149,22 +198,25 @@ export default function Houses() {
                     <button id="apply" onClick={handleApplyFilter}>Apply Filters</button>
                 </div>
             </div>
-            <h1 className="headline">Houses</h1>
+            <h1 className="headline">{window.location.href.includes('Houses') ? "Houses" : "Apartments"}</h1>
             <div className="home_container">
-                {housesArray.map((house, index) => {
+                {housesArray.length !== 0 ?
+                    housesArray.map((house, index) => {
                     return (
-                        <div className="property" key={index}>
+                        <div className="property" key={index} onClick={() => handleModalToggle(index)}>
                             <div className="image_container">
                                 <img src={house.images[0]} alt="" />
                             </div>
                             <div className="property_stats">
-                                <h4>${house.price.toLocaleString()}</h4>
-                                <p>{house.bedrooms} Bedrooms, {house.bathrooms} Bathrooms</p>
-                                <p>{house.location}, Texas</p>
+                                <h4>
+                                ${window.location.href.includes('Houses') ? house.price.toLocaleString() : `${house.price.toLocaleString()}/Month`}
+                                </h4>
+                                <p>{house.bedrooms} Bed, {house.bathrooms} Bath</p>
+                                <p>{house.address}, {house.location}, Texas</p>
                             </div>
                         </div>
-                    )
-                })}
+                    ) 
+                }) : <h2 className="no_results">Sorry, No Results Match the Applied Filters</h2>}
             </div>
         </div>
     )

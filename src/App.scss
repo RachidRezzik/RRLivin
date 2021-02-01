@@ -4,9 +4,16 @@
 @import './scss/home';
 @import './scss/about';
 @import './scss/houses';
+@import './scss/modals';
 @import './scss/contact';
 @import './scss/footer';
 
 body{
   background: $lightgrey;
+
+  &.modal_open{
+    height: 100vh;
+    overflow-y: hidden;
+    padding-right: 15px;
+  }
 }

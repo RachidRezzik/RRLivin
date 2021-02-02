@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+//Component
+import useCurrentWidth from './useCurrentWidth' 
 //images
 import logo from '../images/logo.JPG'
 import ImagesModal from './ImagesModal'
@@ -13,6 +15,7 @@ export default function PropertyModal(props) {
 
     const handleBack = () => {
         props.handleModalToggle("back")
+        setMoreDetails("overview")
     }
 
     const handleContact = () => {
@@ -62,7 +65,8 @@ export default function PropertyModal(props) {
                     <img src={logo} alt="" />
                     <span onClick={handleBack}>🡸 BACK</span>
                 </div>
-                <div className="property_info_images_container">
+                <div className="property_major_flex">
+                    {useCurrentWidth() < 800 ? 
                     <div className="property_images">
                         <div className="property_flex">
                             {props.featuredProperty.images.map((image, index) => {
@@ -72,8 +76,19 @@ export default function PropertyModal(props) {
                             })}
                         </div>
                     </div>
+                    :
+                    <div className="property_images2">
+                        <div className="property_flex2">
+                            {props.featuredProperty.images.map((image, index) => {
+                                return(
+                                    <img src={image} alt="" key={index} onClick={() => handleImageModalToggle(index)}/>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    }
                     <div className="property_info">
-                        <h1>${props.featuredProperty.price} <h3>{props.featuredProperty.bedrooms} Bed <span>│</span> {props.featuredProperty.bathrooms} Bath</h3></h1>
+                        <h1>${window.location.href.includes('Houses') ? props.featuredProperty.price.toLocaleString(): `${props.featuredProperty.price}/Month`} <span>{props.featuredProperty.bedrooms} Bed <span>│</span> {props.featuredProperty.bathrooms} Bath</span></h1>
                         <h3>{props.featuredProperty.address}, {props.featuredProperty.location}, Texas</h3>
                         <Link to="/Contact"><button onClick={handleContact}>Contact Agent</button></Link>
                         <div className="more_details_header">
@@ -92,7 +107,6 @@ export default function PropertyModal(props) {
                                 <span><span className="feature">Cooling:</span>  {props.featuredProperty.cooling}</span>
                             </div>
                             }
-
                         </div>
                     </div>
                 </div>

@@ -25,6 +25,10 @@
             height: 30px;
             border-radius: 2.5px;
 
+            &:active{
+                transform: scale(.98);
+            }
+
             &:hover{
                 background: $green;
             }
@@ -94,6 +98,9 @@
                 text-indent: 10px;
                 margin: 2.5px auto;
                 outline: $green;
+                transition: all .5s ease;
+
+                
             }
 
             .popup_buttons{

@@ -1,20 +1,16 @@
 import React, {useState, useEffect} from 'react'
-import { useHistory } from 'react-router-dom' 
-import { withRouter } from 'react-router'
 
 //Data
-import {HousesData} from '../data/HousesData'
 import {ApartmentsData} from '../data/ApartmentsData'
 
 //Component
 import PropertyModal from './PropertyModal'
 
-// const Page = React.createClass({})
 
-export default function HousesApartments() {
+export default function Apartments() {
     //Property Modal for when User Clicks on Property for More Info
     const [modalOpen, setModalOpen] = useState(false)
-    const [featuredProperty, setFeaturedProperty] = useState({images: HousesData[0].images})
+    const [featuredProperty, setFeaturedProperty] = useState(ApartmentsData[0])
 
     const handleModalToggle = (propertyIndex) => {
         setModalOpen(!modalOpen)
@@ -60,22 +56,16 @@ export default function HousesApartments() {
         })
 
         setMoreFilters(["", "", "", ""])
-
-        if (message === "clear_selects"){
-            Array.from(document.querySelectorAll('.filter_container select'))[0].value = "All"
-            Array.from(document.querySelectorAll('.filter_container select'))[1].value = "Any"
-            
-        }
     }
 
 
-    const [housesArray, setHousesArray] = useState(window.location.href.includes("Houses") ? HousesData: ApartmentsData)
+    const [housesArray, setHousesArray] = useState(window.location.href.includes("Houses") ? ApartmentsData: ApartmentsData)
 
     const handleApplyFilter = () => {
         let filteredArray = []
         let originalArray = []
         if (window.location.href.includes('Houses')){
-            originalArray = [...HousesData]
+            originalArray = [...ApartmentsData]
         } else{
             originalArray = [...ApartmentsData]
         }
@@ -121,22 +111,7 @@ export default function HousesApartments() {
         setMoreOpen(!moreOpen)
     }
 
-    const history = useHistory() 
-    const node2 = React.useRef()
-    const node3 = React.useRef()
-
-    // Checking to see if page changed
-    history.listen((location) => { 
-        if(location.pathname.includes('Houses')){
-            setHousesArray(HousesData)
-        } else if (location.pathname.includes('Apartments')){
-            setHousesArray(ApartmentsData)
-        }
-        handleClearFilters("clear_selects")
-    })
-
     
-
     useEffect(() => {
         let handler = (event) => {
             if (!node.current.contains(event.target) && moreOpen && event.target.className !== "more" && event.target.id !== "add") {
@@ -148,7 +123,7 @@ export default function HousesApartments() {
         return () => {
             document.removeEventListener('mousedown', handler)
         }
-    },[history, housesArray, moreOpen])
+    },[housesArray, moreOpen])
 
     const node = React.useRef()
 
@@ -162,7 +137,7 @@ export default function HousesApartments() {
             <div className="filter_container">
                 <div>
                     City:  
-                    <select ref={node2}>
+                    <select>
                         <option>All</option>
                         <option>Austin</option>
                         <option>Dallas</option>
@@ -172,7 +147,7 @@ export default function HousesApartments() {
                 </div>
                 <div>
                     Price:  
-                    <select ref={node3}>
+                    <select>
                         <option>Any</option>
                         <option>Low to High</option>
                         <option>High to Low</option>
@@ -198,7 +173,7 @@ export default function HousesApartments() {
                     <button id="apply" onClick={handleApplyFilter}>Apply Filters</button>
                 </div>
             </div>
-            <h1 className="headline">{window.location.href.includes('Houses') ? "Houses" : "Apartments"}</h1>
+            <h1 className="headline">Apartments ({housesArray.length})</h1>
             <div className="home_container">
                 {housesArray.length !== 0 ?
                     housesArray.map((house, index) => {
@@ -209,7 +184,7 @@ export default function HousesApartments() {
                             </div>
                             <div className="property_stats">
                                 <h4>
-                                ${window.location.href.includes('Houses') ? house.price.toLocaleString() : `${house.price.toLocaleString()}/Month`}
+                                ${house.price.toLocaleString()}/Month
                                 </h4>
                                 <p>{house.bedrooms} Bed, {house.bathrooms} Bath</p>
                                 <p>{house.address}, {house.location}, Texas</p>

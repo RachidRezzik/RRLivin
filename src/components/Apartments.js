@@ -123,7 +123,7 @@ export default function Apartments() {
         return () => {
             document.removeEventListener('mousedown', handler)
         }
-    },[housesArray, moreOpen])
+    },[moreOpen])
 
     const node = React.useRef()
 

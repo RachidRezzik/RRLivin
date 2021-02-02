@@ -14,16 +14,16 @@ export default function About() {
 
     return (
         <div style={{paddingTop: "65px"}}>
-            <h1 className="about_headline" data-aos="fade-in" data-aos-duration="750">About RR Livin'</h1>
-            <div className="about_intro" data-aos="fade-in" data-aos-duration="750">
+            <h1 className="about_headline">About RR Livin'</h1>
+            <div className="about_intro">
                 <div className="image_container">
                     <img src={founders} alt="" />
                 </div>
                 <p>RR Livin's founders are Ryan and Rachel Dawson. The two met during their respective careers as real estate agents in the Texas hill country. </p>
                 <p>In 2009, the couple decided to offer a new approach to buying/renting homes in founding RR Livin'. Utilizing their experiences, they were able create a more streamlined process for potential homeowners seeking help in making their dreams come true.</p>
             </div>
-            <h1 className="livin_difference">The RR Livin' Difference</h1>
-            <div className="tech_difference" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
+            <div className="tech_difference" data-aos="fade-up" data-aos-duration="700" data-aos-offset="200" data-aos-once="true">
+                <h1 className="livin_difference">The RR Livin' Difference</h1>
                 <h4>Tech</h4>
                 <div className="image_container">
                     <img src={tech} alt="" />
@@ -36,7 +36,7 @@ export default function About() {
                     <Link to="/Apartment"><button>Current Apartment Listings</button></Link>
                 </div>
             </div>
-            <div className="agents_difference" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
+            <div className="agents_difference" data-aos="fade-up" data-aos-duration="700" data-aos-offset="200" data-aos-once="true">
                 <h4 style={{marginTop:"80px"}}>Agents</h4>
                 <div className="image_container">
                     <img src={agents} alt="" />

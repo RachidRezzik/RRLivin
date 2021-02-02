@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 //Component
 import useCurrentWidth from './useCurrentWidth' 
@@ -50,9 +50,24 @@ export default function PropertyModal(props) {
         }
     }
 
+    useEffect(() => {
+        let handler = (event) => {
+            if (!node.current.contains(event.target) && props.modalOpen && !document.querySelector(".image_modal").contains(event.target)) {
+                handleBack()
+            }
+        }
+        document.addEventListener('mousedown', handler)
+
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
+
+    const node = React.useRef()
+
     return (
         <div className={props.modalOpen ? "property_modal open" : "property_modal"}>
-            <ImagesModal 
+            <ImagesModal  
             imageModalOpen={imageModalOpen}
             featuredIndex={featuredIndex}
             featuredImages={props.featuredProperty.images}
@@ -60,7 +75,7 @@ export default function PropertyModal(props) {
             handleNextImage={handleNextImage}
             handlePreviousImage={handlePreviousImage}    
             />
-            <div className="property_container">
+            <div ref={node} className="property_container">
                 <div className="property_nav">
                     <img src={logo} alt="" />
                     <span onClick={handleBack}>🡸 BACK</span>

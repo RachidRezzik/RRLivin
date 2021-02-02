@@ -11,7 +11,6 @@ import down_arrow from '../images/arrowDown.png'
 export default function Hero() {
     const [current, setCurrent] = useState(0)
     const length = SliderData.length
-    console.log(length, SliderData)
     const timeout = useRef(null)
     
     

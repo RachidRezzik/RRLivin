@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 //images
 import x_mark from '../images/x_mark.png'
 
@@ -15,9 +15,24 @@ export default function ImagesModal(props) {
         }
     }
 
+    useEffect(() => {
+        let handler = (event) => {
+            if (!node.current.contains(event.target) && props.imageModalOpen && event.target.className !== "exit_modal") {
+                handleCloseImage()
+            }
+        }
+        document.addEventListener('mousedown', handler)
+
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
+
+    const node = React.useRef()
+
     return (
         <div className={props.imageModalOpen ? "image_modal open": "image_modal"}>
-            <div className="image_container">
+            <div ref={node} className="image_container">
                 <img src={props.featuredImages[props.featuredIndex]} alt="" />
                 <div className="slide_buttons">
                     <span id="previous" onClick={() => handleNextImage("previous")}>➜</span>

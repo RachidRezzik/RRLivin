@@ -150,7 +150,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 98%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 10px auto;
     margin-bottom: 75px;
 
@@ -158,11 +158,18 @@
         background: white;
         border-radius: 2.5px;
         width: 100%;
-        max-width: 325px;
-        margin: 20px 10px;
+        // max-width: 325px;
+        margin: 20px 5px;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         border-bottom: 3px solid $green;
+
+        @media screen and (min-width: 650px){
+            width: 47.5%;
+        }
+        @media screen and (min-width: 1100px){
+            width: 31.5%;
+        }
 
         .image_container{
             position: relative;
@@ -172,7 +179,7 @@
             &::after{
                 content: "";
                 display: block;
-                padding-bottom: 60%;
+                padding-bottom: 57.5%;
             }
     
             img{

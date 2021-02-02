@@ -117,7 +117,7 @@ export default function Houses() {
         return () => {
             document.removeEventListener('mousedown', handler)
         }
-    },[housesArray, moreOpen])
+    },[moreOpen])
 
     const node = React.useRef()
 

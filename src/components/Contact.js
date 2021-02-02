@@ -14,40 +14,40 @@ export default function Contact() {
 
     return (
         <div style={{paddingTop: "65px"}}>
-            <h1 className="contact_headline" data-aos="fade-in" data-aos-duration="1250">RR Livin' Locations</h1>
-            <p className="come_in" data-aos="fade-in" data-aos-duration="1250">Come in or give any of our offices a call and one of our expert agents will be sure to help!</p>
+            <h1 className="contact_headline">RR Livin' Locations</h1>
+            <p className="come_in">Come in or give any of our offices a call and one of our expert agents will be sure to help!</p>
             <div className="locations_container">
-                <div className="location" data-aos="fade-in" data-aos-duration="1250" data-aos-offset="250">
+                <div className="location">
                     <h2>Dallas</h2>
                     <div className="image_container">
                         <img src={dallas} alt="" />
                     </div>
-                    <h4>Address:</h4>
-                    <h4>Phone:</h4>
+                    <h4>Address: 11520 Baker Street, Dallas, TX</h4>
+                    <h4>Phone: 214-350-8250</h4>
                 </div>
-                <div className="location" data-aos="fade-in" data-aos-duration="1250" data-aos-offset="250">
+                <div className="location">
                     <h2>San Antonio</h2>
                     <div className="image_container">
                         <img src={san_antonio} alt="" />
                     </div>
-                    <h4>Address:</h4>
-                    <h4>Phone:</h4>
+                    <h4>Address: 11850 Luella, San Antonio, TX</h4>
+                    <h4>Phone: 210-333-8921</h4>
                 </div>
-                <div className="location" data-aos="fade-in" data-aos-duration="1250" data-aos-offset="250">
+                <div className="location">
                     <h2>Houston</h2>
                     <div className="image_container">
                         <img src={houston} alt="" />
                     </div>
-                    <h4>Address:</h4>
-                    <h4>Phone:</h4>
+                    <h4>Address: 15601 Blue, Houston, TX</h4>
+                    <h4>Phone: 832-444-8321</h4>
                 </div>
-                <div className="location" data-aos="fade-in" data-aos-duration="1250" data-aos-offset="250">
+                <div className="location">
                     <h2>Austin</h2>
                     <div className="image_container">
                         <img src={austin} alt="" />
                     </div>
-                    <h4>Address:</h4>
-                    <h4>Phone:</h4>
+                    <h4>Address: 19923 Jordan Avenue, Austin, TX</h4>
+                    <h4>Phone: 512-678-2233</h4>
                 </div>
             </div>    
         </div>

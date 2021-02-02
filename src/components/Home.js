@@ -25,7 +25,7 @@ export default function Home() {
         <div style={{overflow: "hidden", marginBottom: "75px"}}>
             <div style={{height: "65px"}}></div>
             <Hero />
-            <div data-aos="fade-up" data-aos-delay="125" data-aos-offset="275">
+            <div data-aos="fade-up" data-aos-delay="125" data-aos-offset="275" data-aos-duration="800" data-aos-once="true">
                 <h1 className="difference">Experience the RR Livin' Difference</h1>
                 <div className="home_about">
                     <img src={about} alt="" />
@@ -39,7 +39,7 @@ export default function Home() {
                 </div>
             </div>
             
-            <div className="home_houses" data-aos="fade-up" data-aos-delay="125" data-aos-offset="275">
+            <div className="home_houses" data-aos="fade-up" data-aos-delay="125" data-aos-offset="275" data-aos-duration="800" data-aos-once="true">
                 <div>
                     <h2>Houses</h2>
                     <p>Looking to own your first home or find your dream home? Explore our house listings to make it a reality!</p>
@@ -47,7 +47,7 @@ export default function Home() {
                 </div>
                 <img src={houses} alt="" />
             </div>
-            <div className="home_apartments" data-aos="fade-up" data-aos-delay="125" data-aos-offset="275">
+            <div className="home_apartments" data-aos="fade-up" data-aos-delay="125" data-aos-offset="275" data-aos-duration="800" data-aos-once="true">
                 <img src={apartments} alt="" />
                 <div>
                     <h2>Apartments</h2>

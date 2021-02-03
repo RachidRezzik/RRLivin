@@ -29,7 +29,6 @@ function App() {
         </Switch>
         <Footer />
       </HashRouter>
-    
     </div>
   );
 }

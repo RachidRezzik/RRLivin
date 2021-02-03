@@ -2,12 +2,15 @@
 
 .filter_container{
     @include flexCenter;
+    flex-wrap: wrap;
+    width: 98%;
     margin: 40px auto;
 
     div{
         margin-left: 10px;
 
         select{
+            margin: 5px 0px;
             margin-left: 5px;
             height: 30px;
             cursor: pointer;
@@ -15,6 +18,7 @@
         }
 
         #apply{
+            margin: 5px 0px;
             background: white;
             color: black;
             border: 3px solid $green;
@@ -39,12 +43,14 @@
 
         .more{
             position: static;
+            margin: 5px 0px;
             background: black;
             color: white;
             border: none;
             outline: none;
-            padding: 5px;
+            padding: 7.5px;
             height: 30px;
+            width: 45px;
             cursor: pointer;
             border-radius: 2.5px;
             width: 100%;
@@ -146,30 +152,30 @@
 }
 
 .home_container{
-    @include flexCenter;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    display: grid;
     width: 98%;
-    max-width: 1200px;
     margin: 10px auto;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
     margin-bottom: 75px;
+    grid-gap: 17.5px;
+
+    @media screen and (min-width: 650px){
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (min-width: 1100px){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
     .property{
+        margin: 0px auto;
         background: white;
         border-radius: 2.5px;
         width: 100%;
-        // max-width: 325px;
-        margin: 20px 5px;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         border-bottom: 3px solid $green;
 
-        @media screen and (min-width: 650px){
-            width: 47.5%;
-        }
-        @media screen and (min-width: 1100px){
-            width: 31.5%;
-        }
 
         .image_container{
             position: relative;

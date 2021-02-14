@@ -1,8 +1,6 @@
 @import './config';
 
 .footer{
-    // position: fixed;
-    // bottom: 0;
     @include flexCenter;
     justify-content: space-between;
     background: black;
@@ -13,7 +11,7 @@
 
     .footer_left{
         width: 50%;
-        max-width: 250px;
+        // max-width: 300px;
         @include flexCenter;
         flex-direction: column;
         align-items: flex-start;
@@ -23,7 +21,7 @@
             flex-direction: column;
             
             h3{
-                font-size: 15px;
+                font-size: 12.5px;
             }
 
             .social_media{
@@ -32,7 +30,7 @@
                 i{
                     color: $green;
                     margin: 0px 5px;
-                    font-size: 25px;
+                    font-size: 15px;
                 }
             }
         }
@@ -40,16 +38,38 @@
 
     .footer_right{
         width: 50%;
-        max-width: 250px;
+        // max-width: 300px;
         text-align: right;
+        @include flexCenter;
+        justify-content: flex-end;
+        flex-wrap: wrap;
 
         a{
-            margin-left: 15px;
+            margin: 5px;
             text-decoration: none;
             color: white;
             font-weight: bolder;
+            font-size: 12.5px;
             &:hover{
                 color: $green;
+            }
+        }
+    }
+
+    @media screen and (min-width: 400px){
+        .footer_left .footer_left2{
+            h3{
+                font-size: 15px;
+            }
+
+            .social_media, i{
+                font-size: 25px;
+            }
+        }
+
+        .footer_right{
+            a{
+                font-size: 15px;
             }
         }
     }

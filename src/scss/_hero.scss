@@ -69,12 +69,12 @@
                 display: block;
                 background: black;
                 color: white;
-                height: 50px;
-                width: 50px;
+                height: 35px;
+                width: 35px;
                 border-radius: 100%;
                 cursor: pointer;
                 @include flexCenter;
-                font-size: 25px;
+                font-size: 20px;
                 margin-left: 10px;
                 
     
@@ -92,9 +92,22 @@
                 left: 50%;
                 bottom: 47.5px;
                 transform: translateX(-50%);
-                width: 55px;
-                height: 20px;
+                width: 35px;
+                height: 15px;
                 cursor: pointer;
+            }
+
+            @media screen and (min-width: 400px){
+                .slide_buttons span{
+                    height: 45px;
+                    width: 45px;
+                    font-size: 30px;
+                }
+
+                img{
+                    width: 55px;
+                    height: 20px;
+                }
             }
         }
     }

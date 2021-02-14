@@ -24,12 +24,15 @@ export default function Houses() {
         }
     }
 
-
+    //Handling When Users CLicks for More Filter Options
     const [moreFilters, setMoreFilters] = useState(["", "", "", ""])
     const [bedEmpty, setBedEmpty] = useState(true)
     const [bathEmpty, setBathEmpty] = useState(true)
 
-    const handleMoreFilters = () => {
+    //User submits added filters
+    const handleMoreFilters = (event) => {
+        event.preventDefault()
+
         const moreFilterInputs = Array.from(document.querySelectorAll(".more_popup input")).slice(0, 4)
 
         const filterValues = []
@@ -45,6 +48,7 @@ export default function Houses() {
         setBathEmpty(filters2.splice(2, 2).every(filter => filter === ""))
     }
 
+    //User Wants to Clear Added Filters
     const handleClearFilters = (message) => {
         setBedEmpty(true)
         setBathEmpty(true)
@@ -152,11 +156,11 @@ export default function Houses() {
                     </button>
                     <form onSubmit={handleMoreFilters} ref={node} className={moreOpen ? "more_popup open" : "more_popup"}>
                         <h4>Bedrooms:</h4>
-                        <input id="bedroom_min" type="text" placeholder="Min"/> 
-                        <input id="bedroom_max" type="text" placeholder="Max"/> 
+                        <input id="bedroom_min" type="text" autoComplete="off" placeholder="Min"/> 
+                        <input id="bedroom_max" type="text" autoComplete="off" placeholder="Max"/> 
                         <h4>Bathrooms:</h4>
-                        <input id="bathroom_min" type="text" placeholder="Min"/> 
-                        <input id="bathroom_max" type="text" placeholder="Max"/>
+                        <input id="bathroom_min" type="text" autoComplete="off" placeholder="Min"/> 
+                        <input id="bathroom_max" type="text" autoComplete="off" placeholder="Max"/>
                         <div className="popup_buttons">
                             <input onClick={handleMoreClick} id="add" type="submit" value="Add"/>
                             <button id="clear" onClick={handleClearFilters}>Clear</button>         

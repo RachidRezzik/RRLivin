@@ -15,8 +15,10 @@ export default function Footer() {
                 </div>
             </div>
             <div className="footer_right">
+                <Link to="/About">ABOUT</Link>
                 <Link to="/Apartments">APARTMENTS</Link>
                 <Link to="/Houses">HOUSES</Link>
+                <Link to="/Contact">CONTACT</Link>
             </div>
         </div>
     )
